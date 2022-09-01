@@ -14,9 +14,9 @@ on:
   workflow_dispatch:
 
 env:
-  EMAIL: ${{secrets.EMAIL}}
-  PASSWORD: ${{secrets.PASSWORD}}
-  BASE_URL: ${{secrets.BASE_URL}}
+  EMAIL: ${{ secrets.EMAIL }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+  BASE_URL: ${{ secrets.BASE_URL }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -35,5 +35,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          echo ${{ toJSON(secrets) }}
           env
           python3 main.py
